@@ -1,0 +1,119 @@
+.body{
+    background-color: #5c5656;
+}
+
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.simonBoard{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 600px;
+    height: 600px;
+    border:solid 8px black;
+    border-radius: 600px;
+    
+}
+
+.pad{
+    margin: 0;
+    float: left;
+    position: relative;
+    width: 292px;
+    height:292px;
+    border: solid 3px black;
+    z-index:8;
+}
+
+.green{
+    background-color:green;
+    border-radius:300px 0 0 0 ;
+}
+
+.red{
+    background-color:red;
+    border-radius: 0 300px 0 0 ;
+}
+
+.yellow{
+    background-color:goldenrod;
+    border-radius: 0 0 0 300px ;
+}
+
+.blue{
+    background-color:blue;
+    border-radius: 0 0 300px 0;
+}
+
+.board-controls{
+    width:245px;
+    height:245px;
+    margin-left:167px;
+    margin-top: 167px;
+    background-color:white;
+    border: solid 10px black;
+    border-radius: 150px;
+    position: absolute;
+    z-index: 10;
+}
+
+.title{
+    margin-top:30px;
+    font-size:40;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+.inline{
+ display: inline-block;
+ vertical-align: middle;
+} 
+
+.display{
+    width: 60px;
+    height: 45px;
+    margin-bottom:10px;
+    border:solid 2px black;
+    border-radius: 10px;
+    background-color:#342626;
+    color:white;
+    font-size:36;
+} 
+
+.start, .strict {
+    margin: 0px;
+    margin-left:20px;
+    margin-bottom:10px;
+    text-align: center;
+    width:55px;
+    height:55px;
+    border:solid 2px black;
+    border-radius: 30px;
+    color: black;
+    font-size:11px;
+    font-weight:bolder;
+    line-height:55px;
+}
+
+.start{
+    background-color:red;
+}
+
+.strict{
+    background-color:yellow;
+}
+
+.outer-switch{
+    width:60px;
+    height:30px;
+    border:solid 1px black;
+    background-color:black;
+}
+
+.inner-switch{
+    width:30px;
+    height:30px;
+    background-color: gray;
+}

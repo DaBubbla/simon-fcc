@@ -1,3 +1,14 @@
+<head>
+   <title>Simon</title>
+   <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+
+<body class="body">
 <div class="container">
     <div class="header">
         <h1></h1>
@@ -6,14 +17,20 @@
         <div id=0 class="pad green"></div>
         <div id=1 class="pad red"></div>
         <div id=2 class="pad yellow"></div>
-        <div id=3 class="pad lue"></div>
+        <div id=3 class="pad blue"></div>
         <div class="board-controls">
             <div class="title">SIMON</div>
             <div class="display inline">00</div>
             <div class="start inline">START</div>
             <div class="strict inline">STRICT</div>
-            <div class="switch"></div>
-                <h3 class"inline">OFF</h3>
+            <div class="switch-container">
+                <p class="inline">OFF</p>
+                <div class="switch outer-switch inline"><div class="inner-switch">
+                </div></div>
+                <p class="inline">ON</p>
+                </div>
+            </div>     
         </div>
     </div>
-</div>
+
+</body>

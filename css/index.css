@@ -28,13 +28,21 @@
 }
 
 .green{
-    background-color:green;
+    background-color:darkgreen;
     border-radius:300px 0 0 0 ;
 }
 
+.green-active{
+    background-color:green !important;
+}
+
 .red{
-    background-color:red;
+    background-color:darkred;
     border-radius: 0 300px 0 0 ;
+}
+
+.red-active{
+    background-color:red !important;
 }
 
 .yellow{
@@ -42,9 +50,17 @@
     border-radius: 0 0 0 300px ;
 }
 
+.yellow-active{
+    background-color:yellow !important;
+}
+
 .blue{
-    background-color:blue;
+    background-color:darkblue;
     border-radius: 0 0 300px 0;
+}
+
+.blue-active{
+    background-color:blue !important;
 }
 
 .board-controls{
@@ -102,7 +118,14 @@
 }
 
 .strict{
-    background-color:yellow;
+background-color:yellow;
+}
+
+.strict-active{
+    background-color:goldenrod !important;
+    color: white !important;
+    border:solid 2px red !important;
+    border-radius: 30px !important;
 }
 
 .outer-switch{
@@ -116,4 +139,14 @@
     width:30px;
     height:30px;
     background-color: gray;
+}
+
+
+.boop{
+    background-color: blue;
+    
+}
+
+.boop2{
+    background-color: white !important;
 }

@@ -1,126 +1,47 @@
+const RED = "RED";
+const BLUE = "BLUE";
+const YELLOW = "YELLOW";
+const GREEN = "GREEN";
 
-//variables
-var userSeq = [];
-var simonSeq = []; 
-var NUM_OF_LEVELS = 20;
-var id, color, level = 0;
-var boardSound=[
-  "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3",  //green
-  "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3",  //red
-  "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3",  //yellow
-  "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"   //blue
-  ];
-
-
-// start sequence
-$(document).ready(function(){
-    $(".start").click(function(){
-      level++;
-      simonSequence();
-    });
+var simon = {
+  sendColor:function(color){
     
-    // user pad listener 
-    $('.pad').click(function(){
-      id = $(this).attr("id");
-      color = $(this).attr("class").split(" ")[1];
-      userSeq.push(id);
-      console.log(id+" "+color);
-      addClassSound(id, color);
-      
-      //check user sequence
-      if(!checkUserSeq()){
-        displayError();
-        userSeq = [];
+    if(!simon.sequence.length){//or if simon.sequence.length ===0
+      //start a new game
+      simon.nextSequence();
+    }
+    else{
+      if (color === simon.sequence[simon.step]){
+        //go to next step
       }
-      // checking end of sequence
-      if(userSeq.length === simonSeq.length  && userSeq.length < NUM_OF_LEVELS){
-        level++;
-        userSeq = [];
-        simonSequence();
+      else{
+        // !! lose condition
+        alert("!!");
+        simon.sequence = [];
+        simon.step = 0;
       }
-      
-      if(userSeq.length === NUM_OF_LEVELS){
-        $(".display").text("Win");
-      }
-    });
+    }
+    console.log('NEW COLOR:' + color);
+  },
+  sequence: [],
+  colors: [RED, BLUE, YELLOW, GREEN],
+  step:0,
+  nextSequence: function(){
+  var nextColor = simon.colors[Math.floor(Math.random()*simon.colors.length)];
+  simon.sequence.push(nextColor);
+  console.log("the random color is", nextColor);
+  }
+};
+
+$(document).ready(function(){
+  $("#red").click(function(){ simon.sendColor(RED)});
+  $("#blue").click(function(){ simon.sendColor(BLUE)});
+  $("#yellow").click(function(){ simon.sendColor(YELLOW)});
+  $("#green").click(function(){ simon.sendColor(GREEN)});
+  
+  //reset button? simon.sequence = [];
+  //strict mode
+  //
+
 });
 
-//checking user seq vs simons
-function checkUserSeq(){
-  for(var i = 0; i < userSeq.length; i++){
-    if(userSeq[i] != simonSeq[i]){
-      return false;
-    }
-  }return true;
-}
-
-// display error
-function displayError(){
-  console.log("error!");
-  $(".display").text("!!");
-  var counter = 0;
-  var myError = setInterval(function(){
-    counter++;
-    if(counter ==3){
-      $(".display").text(level);
-      clearInterval(myError);
-      userSeq = [];
-      counter = 0;
-    }
-  },500 );
-}
-
-/*simon sequence*/
-function simonSequence() {
-  console.log(level);
-    $('.display').text(level);
-    
-    getRandomNum(); 
-    var i = 0;
-    var myInterval = setInterval(function() {
-      id = simonSeq[i];
-      color = $("#" + id).attr("class").split(" ")[1];
-      console.log(id+" "+color);
-      
-      addClassSound(id, color);
-      i++;
-      if (i == simonSeq.length){
-        clearInterval(myInterval);
-      }
-    }, 1000);
-    
-    
-}
-// Strict mode button
-function strictMode(){
-  $(".strict").click(function(){
-  level = 0;   console.log (level);
-  $(".display").text('X_X');
-  alert("strict mode enabled");
-  simonSequence();
-  });  
-}
-
-
-//generate random number
-function getRandomNum() {
-  var random = Math.floor(Math.random() * 4);
-  simonSeq.push(random);
-}
-
-/*add temporary class and sound*/
-function addClassSound() {
-  $("#"+id).addClass(color + "-active");
-  playSound(id);                      
-  setTimeout(function() {
-    $("#"+id).removeClass(color + "-active");
-  }, 500);
-}
-
-
-
-/* play board sound */
-function playSound(id) {
-  var sound = new Audio(boardSound[id]);
-  sound.play();
-}

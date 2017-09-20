@@ -31,7 +31,6 @@
     background-color:darkgreen;
     border-radius:300px 0 0 0 ;
 }
-
 .green-active{
     background-color:green !important;
 }
@@ -40,7 +39,6 @@
     background-color:darkred;
     border-radius: 0 300px 0 0 ;
 }
-
 .red-active{
     background-color:red !important;
 }
@@ -49,7 +47,6 @@
     background-color:goldenrod;
     border-radius: 0 0 0 300px ;
 }
-
 .yellow-active{
     background-color:yellow !important;
 }
@@ -58,7 +55,6 @@
     background-color:darkblue;
     border-radius: 0 0 300px 0;
 }
-
 .blue-active{
     background-color:blue !important;
 }
@@ -112,15 +108,13 @@
     font-weight:bolder;
     line-height:55px;
 }
-
 .start{
     background-color:red;
+    cursor:pointer;
 }
-
 .strict{
 background-color:yellow;
 }
-
 .strict-active{
     background-color:goldenrod !important;
     color: white !important;
@@ -141,12 +135,3 @@ background-color:yellow;
     background-color: gray;
 }
 
-
-.boop{
-    background-color: blue;
-    
-}
-
-.boop2{
-    background-color: white !important;
-}
